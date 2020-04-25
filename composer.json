@@ -1,23 +1,23 @@
 {
-  "name": "oywbgit/php-library", // 包名
-  "description": "export mysql data table structure and comments",  // 关于这个包的描述
-  "keywords": [   // 关于这个包的关键字
+  "name": "oywbgit/php-library",
+  "description": "export mysql data table structure and comments",
+  "keywords": [
     "export",
     "wordbook"
   ],
-  "type": "library",  // 这个包的类型
+  "type": "library",
   "require": {
-    "php": ">=7.0"  // 依赖,这里的依赖要小心了, 如果有依赖其他项目的,需要写明版本
+    "php": ">=7.0"
   },
-  "minimum-stability": "dev",  // 版本
-  "license": "MIT",  // 协议, MIT 开源协议
-  "authors": [  // 这个包的作者的用户名称和邮箱
+  "minimum-stability": "dev",
+  "license": "MIT",
+  "authors": [
     {
       "name": "oywbgit",
       "email": "oywbgit@163.com"
     }
   ],
-  "autoload": {  // 自动加载: 注意了, 这里有 psr-4, psr-2 多种规范, 并且,注意目录和命名空间
+  "autoload": {
     "psr-4": {
       "MysqlDict\\": "src/"
     }
