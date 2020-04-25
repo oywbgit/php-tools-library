@@ -1,7 +1,7 @@
 <?php
 
-namespace Toollibrary;
 
+namespace phplibrary;
 /**
  * Autoload.
  */
@@ -33,9 +33,10 @@ class Autoloader
      */
     public static function loadByNamespace($name)
     {
+
         $class_path = \str_replace('\\', \DIRECTORY_SEPARATOR, $name);
-        if (\strpos($name, 'TCPServer\\') === 0) {
-            $class_file = __DIR__ . \substr($class_path, \strlen('TCPServer')) . '.php';
+        if (\strpos($name, 'phplibrary\\') === 0) {
+            $class_file = __DIR__ . \substr($class_path, \strlen('phplibrary')) . '.php';
         } elseif (\strpos($name, 'app\\') === 0) {
             $tmp_file = str_replace('\\','/',realpath(dirname(dirname(__FILE__)).'/')).'/application'. \substr($class_path, \strlen('app')) . '.php';
             $class_file = str_replace('\\','/',$tmp_file);
@@ -50,6 +51,7 @@ class Autoloader
                 $class_file = __DIR__ . \DIRECTORY_SEPARATOR . '..' . \DIRECTORY_SEPARATOR . "$class_path.php";
             }
         }
+//        echo $name.' => '.$class_file.PHP_EOL;
 
         if (\is_file($class_file)) {
             require_once($class_file);
@@ -61,7 +63,13 @@ class Autoloader
     }
 
     public static function initCommon(){
-        include_once "core/common.php";
+        $path = dirname(__FILE__). DIRECTORY_SEPARATOR.'core';
+        $pf = Autoloader::my_scandir($path);
+        foreach ($pf as $f){
+            if(is_file($f)){
+                include_once $f;
+            }
+        }
     }
 
     /**
@@ -106,8 +114,8 @@ class Autoloader
     }
 }
 
+
+
+spl_autoload_register( '\phplibrary\Autoloader::loadByNamespace' );
+
 Autoloader::initCommon();
-
-//config/config.php
-\spl_autoload_register('\toollibrary\Autoloader::loadByNamespace');
-

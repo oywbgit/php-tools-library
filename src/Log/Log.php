@@ -7,7 +7,7 @@
  */
 namespace Log;
 
-use system\Dir;
+use phplibrary\core\Dir;
 use Log\Traits\SimpleTrait;
 
 /**
