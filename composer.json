@@ -1,5 +1,5 @@
 {
-  "name": "oywbgit/php-tools-library", // 包名
+  "name": "oywbgit/php-library", // 包名
   "description": "export mysql data table structure and comments",  // 关于这个包的描述
   "keywords": [   // 关于这个包的关键字
     "export",
@@ -23,4 +23,3 @@
     }
   }
 }
-//https://github.com/oywbgit/php-tools-library.git
